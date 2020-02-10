@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 class SeriesBuilder:
     """Make a time series with trend, seasonality, pattern and noise"""
-    def __init__(self, baseline=10, slope=0.1, period=365, amplitude=10, phase=0, noise_level=2, seed=42):
+    def __init__(self, baseline=10, slope=0.1, period=365, amplitude=10, phase=0, noise_level=1, seed=42):
         self.baseline = baseline
         self.slope = slope
         self.period = period
@@ -38,7 +38,8 @@ class SeriesBuilder:
 
     def generate_series(self, time):
         ts = self.baseline + self.trend(time, self.slope) 
-        ts += self.seasonality(time, self.period, self.amplitude) 
+        ts += self.seasonality(time, self.period, self.amplitude)
+        ts += self.seasonality(time, self.period * -0.3, self.amplitude * 0.5)
         ts += self.white_noise(time, self.noise_level, self.seed)
         return ts
     
