@@ -10,8 +10,4 @@ I used a sequence-to-sequence model. Aurélien Géron mentions in his book (Hand
 
 The idea of using more forecast steps than needed can be beneficial as well. It will result in slower training but can have a regularizer effect, especially in case of a time series with high variance. I checked only one time series and one model architecture so far, so I can't say that this can help in most cases, but in some cases, it can improve the forecast.
 
-I didn't tun the hyperparameters. My goal wasn't to find the best possible model but to compare the performance of the 1 and 10 step forecast versions of the same architecture to see how it affects the model performance.
-
-Codeparts are used from the Tensorflow site and from https://github.com/ageron.
-
 notebook: https://github.com/sinusgamma/multitarget_training/blob/master/multitarget_conv_lstm.ipynb
